@@ -25,7 +25,8 @@ RUN apt-get update \
  && make \
  && apt-get install -y supervisor \
  && mkdir -p /var/log/supervisor /etc/redis \
- && apt-get install -y python3.5 python3-pip \
+ && apt-get update \
+ && apt-get install -y python3.5 python3-pip libffi-dev libssl-dev \
  && rm -rf /var/lib/apt/lists/*
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
